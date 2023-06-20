@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPokemon } from '../../reducer/pokemon';
+import OnePokemon from '../components/OnePokemon';
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -13,22 +14,7 @@ const MainPage = () => {
     getPokemonData();
   }, [dispatch]);
 
-  return (
-    <div>
-      {pokemonData?.map((pokemon, index) => {
-        const koreanNameEntry = pokemon.names?.find(nameEntry => nameEntry.language.name === 'ko');
-        const koreanName = koreanNameEntry ? koreanNameEntry.name : pokemon.name;
-
-        return (
-          <div key={index}>
-            <div>{pokemon.id}</div>
-            <div>{koreanName}</div>
-            <img src={pokemon.sprites.front_default} alt={koreanName} />
-          </div>
-        );
-      })}
-    </div>
-  );
+  return <OnePokemon pokemonData={pokemonData} />;
 };
 
 export default MainPage;

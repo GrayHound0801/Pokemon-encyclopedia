@@ -5,4 +5,7 @@ export const MainApi = {
     console.log('mainApi보냄');
     return axiosInstance.get(`https://pokeapi.co/api/v2/pokemon`);
   },
+  getPokemonDetail(id) {
+    return axiosInstance.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  },
 };

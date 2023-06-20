@@ -1,5 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import { pokemonSlice } from './pokemon';
+import { pokemonDetailSlice, pokemonSlice } from './pokemon';
 export const rootReducer = combineReducers({
   pokemon: pokemonSlice.reducer,
+  pokemonDetail: pokemonDetailSlice.reducer,
 });
